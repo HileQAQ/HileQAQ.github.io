@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-31T18:00:34.120Z</updated>
+  <updated>2021-01-31T18:49:39.308Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://example.com/2021/02/01/world-hello/"/>
     <id>http://example.com/2021/02/01/world-hello/</id>
     <published>2021-01-31T17:58:00.000Z</published>
-    <updated>2021-01-31T18:00:34.120Z</updated>
+    <updated>2021-01-31T18:49:39.308Z</updated>
     
     <content type="html"><![CDATA[<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><h2 id="二"><a href="#二" class="headerlink" title="二"></a>二</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//cpp code</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><del>delete</del></p><p>$\LaTeX$</p><p>$f_{i,j}=f_{i-1,j}+f_{i,j-1}$</p>]]></content>
     
@@ -36,7 +36,7 @@
     <category term="色图" scheme="http://example.com/categories/%E8%89%B2%E5%9B%BE/"/>
     
     
-    <category term="色图" scheme="http://example.com/tags/%E8%89%B2%E5%9B%BE/"/>
+    <category term="AC自动机fail树上dfs序建可持久化线段树" scheme="http://example.com/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BAfail%E6%A0%91%E4%B8%8Adfs%E5%BA%8F%E5%BB%BA%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
     
   </entry>
   
