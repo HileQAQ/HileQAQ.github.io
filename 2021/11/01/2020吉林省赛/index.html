@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>Hile_Meow's Blog</title>
+  <title>2020吉林省赛 | Hile_Meow's Blog</title>
   <meta name="author" content="Hile_Meow" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,15 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="" />
+    <meta name="keywords" content="题解" />
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hile_Meow&#39;s Blog">
-<meta property="og:url" content="http://example.com/search/index.html">
+  <meta name="description" content="NEERC之后的减压省赛，差点被碰到绝活题的瓜队爆杀。由于签到题太多，题解只写几道有价值的。 D. TrieAC自动机fail树上dfs序建可持久化线段树。 对联题。 H. Curious数论。属于是莫反裸题了，用$c_i$表示$i$在$a$中的出现次数，则有 $\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{n}[gcd(i,j)&#x3D;x]c_ic_j$ $&#x3D;\sum_{i&#x3D;1}^{\frac{">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020吉林省赛">
+<meta property="og:url" content="http://example.com/2021/11/01/2020%E5%90%89%E6%9E%97%E7%9C%81%E8%B5%9B/index.html">
 <meta property="og:site_name" content="Hile_Meow&#39;s Blog">
+<meta property="og:description" content="NEERC之后的减压省赛，差点被碰到绝活题的瓜队爆杀。由于签到题太多，题解只写几道有价值的。 D. TrieAC自动机fail树上dfs序建可持久化线段树。 对联题。 H. Curious数论。属于是莫反裸题了，用$c_i$表示$i$在$a$中的出现次数，则有 $\sum_{i&#x3D;1}^{n}\sum_{j&#x3D;1}^{n}[gcd(i,j)&#x3D;x]c_ic_j$ $&#x3D;\sum_{i&#x3D;1}^{\frac{">
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/null">
+<meta property="article:published_time" content="2021-11-01T07:42:17.000Z">
+<meta property="article:modified_time" content="2021-11-01T20:07:31.181Z">
 <meta property="article:author" content="Hile_Meow">
+<meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/null">
 <meta name="twitter:site" content="@null">
@@ -126,36 +131,160 @@
                     
         <div id="main">
             <section class="col-md-8">
-    <div class="kratos-hentry kratos-post-inner clearfix">
-        <div class="kratos-post-content">
-            <h2 class="title-h2 text-center">搜索</h2>
-            <form class="input-group" onsubmit="return inpSearch();">
-                <input class="form-input input-lg" id="search-input" maxlength="80" name="s" placeholder="有什么想找找看的呢o(*￣▽￣*)ブ" required type="search">
-                <button class="btn btn-primary" type="submit">找一找~</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="alert alert-info" id="kr-search-notice">
-        这里是 Hile_Meow's Blog 的搜索引擎~
-    </div>
-
-    <div id="result-posts">
+    <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">2020吉林省赛</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                        <i class="fa fa-calendar"></i> 2021-11-01
+                        <i class="fa fa-folder"></i> 分类 <a class="label-link" href="/categories/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83/">组队训练</a>
+                        <i class="fa fa-user"></i> 作者 Hile_Meow
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            854
+                        
+                        字
+                        
+                    </span>
+                </div>
+            </header>
             <div class="kratos-post-content">
-                <p>搜索多个关键词时请用空格分割，例如「Namomo Camp DP 数论」这样；</p>
-                <p>您也可以使用这些标签碰碰运气哦~</p>
-                <p class="search-demo-tags">
-                    <a href="/tags/Namomo-Camp/" style="font-size: 21px; color: #8f96a3">Namomo Camp</a> <a href="/tags/DP/" style="font-size: 18px; color: #b2b7be">DP</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 18px; color: #b2b7be">数论</a> <a href="/tags/%E6%9E%84%E9%80%A0/" style="font-size: 18px; color: #b2b7be">构造</a> <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 24px; color: #6c7588">题解</a>
-                </p>
+                <div id="expire-alert" class="alert alert-warning hidden" role="alert">
+                    本文最后编辑于 <time datetime="1635797251181"></time> 前，其中的内容可能需要更新。
+                </div>
+                
+                <hr />
+                <p>NEERC之后的减压省赛，差点被碰到绝活题的瓜队爆杀。由于签到题太多，题解只写几道有价值的。</p>
+<h2 id="D-Trie"><a href="#D-Trie" class="headerlink" title="D. Trie"></a>D. Trie</h2><p><strong>AC自动机fail树上dfs序建<del>可持久化</del>线段树</strong>。</p>
+<p>对联题。</p>
+<h2 id="H-Curious"><a href="#H-Curious" class="headerlink" title="H. Curious"></a>H. Curious</h2><p>数论。属于是莫反裸题了，用$c_i$表示$i$在$a$中的出现次数，则有</p>
+<p>$\sum_{i=1}^{n}\sum_{j=1}^{n}[gcd(i,j)=x]c_ic_j$</p>
+<p>$=\sum_{i=1}^{\frac{n}{x}}\sum_{j=1}^{\frac{n}{x}}[gcd(i,j)=1]c_{ix}c_{jx}$</p>
+<p>$=\sum_{i=1}^{\frac{n}{x}}\sum_{j=1}^{\frac{n}{x}}\sum_{d|gcd(i,j)}\mu(d)c_{ix}c_{jx}$</p>
+<p>$=\sum_{d=1}^{\frac{n}{x}}\mu(d)\sum_{i=1}^{\frac{n}{xd}}\sum_{j=1}^{\frac{n}{xd}}c_{ixd}c_{jxd}$</p>
+<p>$O(n\log n)$预处理后面那一块，然后对于每一个$x$调和级数暴力算答案，总复杂度$O(n\log n)$。</p>
+<h2 id="I-World-Tree"><a href="#I-World-Tree" class="headerlink" title="I. World Tree"></a>I. World Tree</h2><p>贪心，dp。首先考虑树形dp，但是不会处理同层子树选择的优先级，考虑最优子结构贪心：</p>
+<p>设</p>
+<h2 id="J-Situation"><a href="#J-Situation" class="headerlink" title="J. Situation"></a>J. Situation</h2><p>博弈，记忆化搜索。一共$2\times3^9$种状态，每种状态会转移到后继最值，复杂度$O(2\times9\times3^9)$，不熟悉的话可以补一补17女生赛的J题。</p>
+<h2 id="M-Upanishad"><a href="#M-Upanishad" class="headerlink" title="M. Upanishad"></a>M. Upanishad</h2><p>数据结构。首先考虑如果询问改成求区间内所有出现次数为奇数的数的异或和，那么答案就是该区间的异或和，所以，$出现次数为偶数的数的异或和=区间异或和\oplus区间set的异或和$，关键就是求出区间所有数的$set$。</p>
+<p>考虑离线，枚举区间右端点，记录某数最后出现的位置，然后更新到树状数组上同时消除之前的影响以保证每个数只会出现一次，对于每个询问用树状数组求区间异或和即可。</p>
+
             </div>
-        </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
     </div>
-
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://example.com/2021/11/01/2020%E5%90%89%E6%9E%97%E7%9C%81%E8%B5%9B/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://example.com/2021/11/01/2020%E5%90%89%E6%9E%97%E7%9C%81%E8%B5%9B/";
+            const title         = "「2020吉林省赛」";
+            const excerpt       = `NEERC之后的减压省赛，差点被碰到绝活题的瓜队爆杀。由于签到题太多，题解只写几道有价值的。
+D. TrieAC自动机fail树上dfs序建可持久化线段树。
+对联题。
+H. Curious数论。属于是莫反裸题了，用$c_i$表示$i$...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2021-11-02</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 2018-2019 ICPC, NEERC, Northern Eurasia Finals" href="/2021/11/01/2018-2019-ICPC-NEERC-Northern-Eurasia-Finals/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" 2019CCPC哈尔滨" href="/2021/11/01/2019CCPC哈尔滨/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+    </article>
 </section>
-
-<script>var searchDataFile = "/search.json";</script>
-<script defer src="/js/local-search.min.js"></script>
         </div>
                 
             <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
