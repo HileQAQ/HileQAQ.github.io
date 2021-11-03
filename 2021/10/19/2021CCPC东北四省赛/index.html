@@ -24,7 +24,7 @@
 <meta property="og:locale">
 <meta property="og:image" content="http://example.com/null">
 <meta property="article:published_time" content="2021-10-19T00:14:22.000Z">
-<meta property="article:modified_time" content="2021-10-19T06:57:44.660Z">
+<meta property="article:modified_time" content="2021-11-03T07:41:07.412Z">
 <meta property="article:author" content="Hile_Meow">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~7.99K
+                            ~10.08K
                         
                         字
                         
@@ -153,7 +153,7 @@
             </header>
             <div class="kratos-post-content">
                 <div id="expire-alert" class="alert alert-warning hidden" role="alert">
-                    本文最后编辑于 <time datetime="1634626664660"></time> 前，其中的内容可能需要更新。
+                    本文最后编辑于 <time datetime="1635925267412"></time> 前，其中的内容可能需要更新。
                 </div>
                 
                 <hr />
@@ -191,7 +191,25 @@
     </div></div>
     </div>
 <h2 id="E-Easy-Math-Problem"><a href="#E-Easy-Math-Problem" class="headerlink" title="E. Easy Math Problem"></a>E. Easy Math Problem</h2><p>签到。Hile_Meow病发，wa一发才过。</p>
-<h2 id="F-Permutation"><a href="#F-Permutation" class="headerlink" title="F. Permutation"></a>F. Permutation</h2><h2 id="G-Ball"><a href="#G-Ball" class="headerlink" title="G. Ball"></a>G. Ball</h2><h2 id="H-Loneliness"><a href="#H-Loneliness" class="headerlink" title="H. Loneliness"></a>H. Loneliness</h2><p>给出一个$n\times n$的矩阵，你的分数初始为$1$。当分数为$x$时，往上下左右分别会变成$x/2,x\times2,x+2,x-2$（往上时$x$必须为偶数），给出一个$k$，要求输出从$(1,1)$到$(n,n)$的一条路径（可重复经过$(n,n)$在内的点）使得在终点时分数恰好为$k$。</p>
+<h2 id="F-Permutation"><a href="#F-Permutation" class="headerlink" title="F. Permutation"></a>F. Permutation</h2><h2 id="G-Ball"><a href="#G-Ball" class="headerlink" title="G. Ball"></a>G. Ball</h2><p>计数。考虑满足$n,m,k$的状态最终一定是两段，前一段连续，后一段和前一段不连续（长度可能为0）。</p>
+<p>假设第一段长度为$x$，令$f_{i,j}$表示扔$i$个球填满$j$个区域的方案数，$g_{i,j}$表示扔$i$个球填不满$j$个区域的方案数，则此时答案为$f_{k+x,x}\times g_{m-k-x,n-x-1}\times {m\choose k+x}$，</p>
+<p>考虑枚举所有可能的$x$，则答案为上式之和，接下来计算$f$和$g$。</p>
+<p>可以看看<a target="_blank" rel="noopener" href="https://waberzhuang.github.io/2021/10/17/%E7%BB%84%E9%98%9F%E8%B5%9B%E8%AE%AD%E7%BB%83/2021-%E4%B8%9C%E5%8C%97%E7%9C%81%E8%B5%9B/">ZAwei的博客</a>，里面的转移很简单，这里提供一种相对麻烦但是没有思维难度的计算方法：</p>
+<p>考虑$f_{i,j}$的转移有两种：</p>
+<ul>
+<li>在已经填满$j$个区域的基础上再扔一个球</li>
+<li>扔第$i$个球时<strong>恰好</strong>填满$j$个区域</li>
+</ul>
+<p>第一种转移就是$f_{i-1,j}\times j$，</p>
+<p>第二种转移考虑枚举最后一个填的位置$x$，结果为$f_{i-j+x-1,j}\times f_{j-x,j-x}\times{i-1\choose j-x}\times(j-x+1)$，</p>
+<p>复杂度$O(mn^2)$。</p>
+<div class="xControl">
+    <div class="xHeading"><div class="xIcon"><i class="fa fa-plus"></i></div><span>Code</span></div>
+    <div class="xContent"><div class="inner">
+        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">500</span>+<span class="number">7</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = <span class="number">998244353</span>;</span><br><span class="line"><span class="keyword">int</span> f[N&lt;&lt;<span class="number">1</span>][N],g[N&lt;&lt;<span class="number">1</span>][N],C[N&lt;&lt;<span class="number">2</span>][N&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">int</span> m,<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(!k)<span class="keyword">return</span> g[m][n];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=min(n,m-k);i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;n)&#123;</span><br><span class="line">            ans=(ans+<span class="number">1LL</span>*f[i+k][i]*g[m-i-k][n-i<span class="number">-1</span>]%MOD*C[m][i+k]%MOD)%MOD;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(n+k==m)&#123;</span><br><span class="line">            ans=(ans+f[m][n])%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    C[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">2000</span>;i++)&#123;</span><br><span class="line">        C[i][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">            C[i][j]=(C[i<span class="number">-1</span>][j<span class="number">-1</span>]+C[i<span class="number">-1</span>][j])%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>]=g[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">1000</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=min(i,<span class="number">500</span>);j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=j;k++)&#123;</span><br><span class="line">                f[i][j]=(f[i][j]+<span class="number">1LL</span>*f[i-j+k<span class="number">-1</span>][k<span class="number">-1</span>]*f[j-k][j-k]%MOD*C[i<span class="number">-1</span>][j-k]%MOD*(j-k+<span class="number">1</span>)%MOD)%MOD;</span><br><span class="line">            &#125;</span><br><span class="line">            f[i][j]=(f[i][j]+<span class="number">1LL</span>*f[i<span class="number">-1</span>][j]*j%MOD)%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">500</span>;j++)&#123;</span><br><span class="line">        g[<span class="number">0</span>][j]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=j;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;=i;k++)&#123;</span><br><span class="line">                g[i][j]=(g[i][j]+<span class="number">1LL</span>*g[i-k][j<span class="number">-1</span>]*C[i][k]%MOD)%MOD;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="keyword">int</span> n,m,k;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m&gt;&gt;k;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;solve(n,m,k)&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure> 
+    </div></div>
+    </div>
+<h2 id="H-Loneliness"><a href="#H-Loneliness" class="headerlink" title="H. Loneliness"></a>H. Loneliness</h2><p>给出一个$n\times n$的矩阵，你的分数初始为$1$。当分数为$x$时，往上下左右分别会变成$x/2,x\times2,x+2,x-2$（往上时$x$必须为偶数），给出一个$k$，要求输出从$(1,1)$到$(n,n)$的一条路径（可重复经过$(n,n)$在内的点）使得在终点时分数恰好为$k$。</p>
 <div class="xControl">
     <div class="xHeading"><div class="xIcon"><i class="fa fa-plus"></i></div><span>Solution</span></div>
     <div class="xContent"><div class="inner">
@@ -320,7 +338,7 @@ A. Matrix一开始的思路是计算前$n$个数分布在恰好$k$行的方案�
                         <a class="tag-none-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-10-19</span>
+                    <span>最后编辑：2021-11-03</span>
                     </div>
                 </div>
             </footer>
@@ -366,7 +384,7 @@ A. Matrix一开始的思路是计算前$n$个数分布在恰好$k$行的方案�
                     
   <aside id="krw-categories" class="widget widget-categories clearfix">
     <h4 class="widget-title"><i class="fa fa-folder"></i>分类目录</h4>
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Namomo-Camp-2021/">Namomo Camp 2021</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA%E8%AE%AD%E7%BB%83/">个人训练</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83/">组队训练</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Namomo-Camp-2021/">Namomo Camp 2021</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AA%E4%BA%BA%E8%AE%AD%E7%BB%83/">个人训练</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E5%AD%A6/">数学</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BB%84%E9%98%9F%E8%AE%AD%E7%BB%83/">组队训练</a><span class="category-list-count">9</span></li></ul>
   </aside>
 
 
@@ -389,6 +407,24 @@ A. Matrix一开始的思路是计算前$n$个数分布在恰好$k$行的方案�
         
           
           
+            <a class="list-group-item" href="/2021/11/03/2018CCPC%E6%A1%82%E6%9E%97/"><i class="fa  fa-book"></i> 2018CCPC桂林</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/03/NTU-Preliminary-2021/"><i class="fa  fa-book"></i> NTU Preliminary 2021</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/11/03/2020-ICPC-Taipei-Hsinchu-Site/"><i class="fa  fa-book"></i> 2020 ICPC Taipei-Hsinchu Site</a>
+            
+          
+        
+          
+          
             <a class="list-group-item" href="/2021/11/01/2019CCPC%E5%93%88%E5%B0%94%E6%BB%A8/"><i class="fa  fa-book"></i> 2019CCPC哈尔滨</a>
             
           
@@ -400,23 +436,11 @@ A. Matrix一开始的思路是计算前$n$个数分布在恰好$k$行的方案�
           
         
           
-          
-            <a class="list-group-item" href="/2021/11/01/2018-2019-ICPC-NEERC-Northern-Eurasia-Finals/"><i class="fa  fa-book"></i> 2018-2019 ICPC, NEERC, Northern Eurasia Finals</a>
             
           
-        
-          
-          
-            <a class="list-group-item" href="/2021/10/23/2021%E5%B1%B1%E4%B8%9C%E7%9C%81%E8%B5%9B/"><i class="fa  fa-book"></i> 2021山东省赛</a>
             
           
-        
-          
-          
-            <a class="list-group-item" href="/2021/10/19/2021CCPC%E4%B8%9C%E5%8C%97%E5%9B%9B%E7%9C%81%E8%B5%9B/"><i class="fa  fa-book"></i> 2021CCPC东北四省赛</a>
             
-          
-        
           
             
           
