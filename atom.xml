@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-03T16:54:59.028Z</updated>
+  <updated>2021-11-08T08:06:24.291Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021CCPC桂林复盘</title>
+    <link href="http://example.com/2021/11/08/2021CCPC%E6%A1%82%E6%9E%97%E5%A4%8D%E7%9B%98/"/>
+    <id>http://example.com/2021/11/08/2021CCPC%E6%A1%82%E6%9E%97%E5%A4%8D%E7%9B%98/</id>
+    <published>2021-11-08T06:51:18.000Z</published>
+    <updated>2021-11-08T08:06:24.291Z</updated>
+    
+    <content type="html"><![CDATA[<p>晚节不保了，没想到大四了还会打铜。。。</p><h2 id="热身赛"><a href="#热身赛" class="headerlink" title="热身赛"></a>热身赛</h2><p><del>热身赛开场前5min，有人还在玩蜘蛛纸牌，我不说是谁</del></p><p>签的很快，顺便测了下评测机速度，小常数4e8跑了2s左右，感觉很合理，可惜的是一道思路正确的C没写完，赛后得知是澳门原题，阿伟改了改交上去a了。热身赛时发挥差强人意，感觉照这个状态怎么说保底也有银，当晚打了下自己的所有板子，盲猜明天至少出一道多项式or莫反（然后就被出题组counter了）。</p><p><strong>插曲</strong>：由于众所周知的原因，正赛前一晚睡眠不足，就此埋下了伏笔。</p><h2 id="正式赛"><a href="#正式赛" class="headerlink" title="正式赛"></a>正式赛</h2><p>开场bbg飞速读题并a了两道签到，此时全场rank2，我读完G和阿伟交流了下感觉可做，稍微讨论就有了二分答案然后check的方法，然后阿伟上机1a。期间D过的也多起来了，但是听完题意后想不到靠谱的方法，也没有什么通用的构造方法，和bbg相互hack各种做法后打算上去写个对拍，此时bbg灌了下E的题意和做法，证明了一下就让阿伟去写了，<strong>此时还是不会D</strong>。</p><p>关键的转折就是阿伟上机写$E$的过程中，bbg给我灌了F的题意，我听完：这不是丝薄题吗，然后就打算让主代码手阿伟上去写，<strong>完全没注意题面里$10^9$的值域和$10^{-9}$的精度要求</strong>。等到E过了，给阿伟说了下F做法，阿伟又简化了一波。此时bbg在冲D​，我读了下B感觉可做，由于D没过也没有细想，<strong>但是D怎么想都不会</strong>。</p><p>大概开始后3h，F交上去wa了，我造了组hack数据给$ZAwei$调，然后上去写了个D的暴力对拍。$Boboge$写完后好像没拍出问题，交上去re了，发现是vector为0时访问了pos[0]，交上去又wa，然后各种修改，期间$ZAwei$也改出来了，出了好几组数据发现都没问题，于是怀疑<strong>被卡精度了</strong>。</p><p>封榜后，bbg改了改上一发代码就过了D，是个很玄学的贪心，俺属实不会。此时杂威疯狂改精度（从$10^{-6}$改到$10^{-30}$，long double也上了还是wa麻了，<strong>此时Hile在挂机</strong>。bbg说会了B，说了做法但是<strong>我开始混乱了没怎么听</strong>，<strong>继续挂机</strong>，bbg上去写了但是没写完，直接打铜。</p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>感觉这场最大的失误就是上了F的当，虽然这道题开的早做法也显然，但是在<strong>全队写计算几何只会用模板</strong>且<strong>榜上dirt率高过题人数少</strong>的情况写这题，属实是错误的决策。而且，由于平时校内训练简单场顺风局打多了，面对中后期的决策失误无法冷静换题或重构。</p><p>就我个人而言，这场属实没啥作用，由于平时组队赛只负责做一些偏难的数学和构造题，而且主要是推公式而不是上机写代码，导致全面性降低，碰到自己不擅长的贪心和数据结构几乎没有想法，全程挂机。接下来平时自己需要多进行一些额外的个人训练了，比如vp几场gym保持个人的全面能力。</p><p><strong>电子竞技，菜是原罪。</strong></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;晚节不保了，没想到大四了还会打铜。。。&lt;/p&gt;
+&lt;h2 id=&quot;热身赛&quot;&gt;&lt;a href=&quot;#热身赛&quot; class=&quot;headerlink&quot; title=&quot;热身赛&quot;&gt;&lt;/a&gt;热身赛&lt;/h2&gt;&lt;p&gt;&lt;del&gt;热身赛开场前5min，有人还在玩蜘蛛纸牌，我不说是谁&lt;/del&gt;&lt;/</summary>
+      
+    
+    
+    
+    <category term="比赛记录" scheme="http://example.com/categories/%E6%AF%94%E8%B5%9B%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="比赛记录" scheme="http://example.com/tags/%E6%AF%94%E8%B5%9B%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>2018CCPC桂林</title>
