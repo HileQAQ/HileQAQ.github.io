@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-08T08:06:24.291Z</updated>
+  <updated>2021-11-15T08:46:56.450Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021CCPC广州复盘</title>
+    <link href="http://example.com/2021/11/15/2021CCPC%E5%B9%BF%E5%B7%9E%E5%A4%8D%E7%9B%98/"/>
+    <id>http://example.com/2021/11/15/2021CCPC%E5%B9%BF%E5%B7%9E%E5%A4%8D%E7%9B%98/</id>
+    <published>2021-11-15T07:28:28.000Z</published>
+    <updated>2021-11-15T08:46:56.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>最后一场CCPC也没有金。怎么说呢，感觉pku出题稍微有点离谱，不过自己菜也是原因之一就是了。</p><h2 id="热身赛"><a href="#热身赛" class="headerlink" title="热身赛"></a>热身赛</h2><p>队友切了AB，C是神秘计算几何板子题，数据范围和精度各种神秘，三分了一下直线最短距离，然后再次被卡，愿天堂没有计算几何。</p><p>赛后听说是POJ原题，不过还是略显离谱。<del>没想到好日子还在后面</del></p><h2 id="正式赛"><a href="#正式赛" class="headerlink" title="正式赛"></a>正式赛</h2><p>开局就是阿伟正开，我倒开，bbg看D。看了一圈题面长度、输入规模、时间限制，感觉后面没有前期题，看到F手推了前四项感觉很神秘，此时队友在看I，听说是打表题。bbg给我们灌了H的题意，貌似很cf的构造，但是榜上dirt相当高，反倒是I很像签到，阿伟于是打表秒了。</p><p>过了I之后，就是经典两路分推，bbg和阿伟讨论H的构造，我去推好像很可做的A。A写出生成函数就是$\prod_{i=1}^{n}\sum_{i=1}^{\infin}i^{c_i}x_i$前$W$项系数和，翻了波<strong>数学公式板子</strong>找到了$\sum_{i=1}^{\infin}i^kx_i=x^k\frac{d^k}{dx^k}\frac{1}{(1-x)}$，纸上推了推，发现$\frac{d^k}{dx^k}\frac{1}{(1-x)}=\frac{k}{(1-x)^{(k+1)}}$的规律，所以之前的生成函数就是$\frac{\prod_{i=1}^{n}c_ix^c_i}{(1-x)^{\sum_{i=1}^{n}c_i+1}}$，如果要求它的前$W$项之和，就等于原生成函数乘$\sum_{i=0}^{n}x_i=\frac{1}{(1-x)}$（也就是做一次前缀和）后第$W$项的系数。</p><p><strong>然后我就不会求了</strong></p><p>（现在想想只觉得离谱，无论是考虑前缀和的贡献还是从广义二项式定理都能随便乱推，但是当时就是没想到，再加上看了眼榜还没有人过这题就错误估计了难度，扔掉后再也没想过，最难的部分被板子解决了，却卡在临门一脚。感觉对我来说可能是这场最遗憾的事情了。）</p><p>此时H交一发wa了，听说check没问题，说明是有方案的情况时输出了$NO$，问了下当仅存在两个$0$的时候被判作无解了，在纸上乱写时搞出了一组方案，然后阿伟改改ac了。</p><p>看了下榜只有C和F看起来可做，而且F的通过率极高，于是打算一起搞C。我看了下时间限制和下面的神秘快读，<strong>断定这题是在卡非线性做法</strong>（事实证明如果队友真信了去搞线性做法，我队可能就又铜了），先跟队友讨论了一波二分check方法，突然不知道为啥去看了眼F，此时F大概是过了三四队。</p><p>想了想，为啥出题人会放个这么奇怪的公式，而且通过clarification才说清楚$f_n$是不是有标号树的计数，然后把$f_1=a,f_2=b$代入算了下$n=2$的答案，发现刚好能通分到$\frac{a-b}{a-b}=1$，于是猜想<strong>答案可能是个定值或者只和$n$有关</strong>，<strong>然后做了个逆天决策</strong>：</p><p><strong>设$f_1=a,f_2=b,f_3=c$，然后在纸上通分出结果</strong></p><p>（现在想想这个问题很大，如果是猜测的话为啥不直接代入任意值代码跑一下，反正现在队友在讨论C没人上机，一下跑出来后还能多出至少半小时想K或A）</p><p>纸上写了半小时多，发现$n=3$时答案是$2$，然后让阿伟敲了个暴力，代入了$f_i=i,f_i=2*i,f_i=n+1-i$，发现都是斐波那契，遂一发ac，此时是第11个过F的队。</p><p>然后我继续去看K，C直接被阿伟一发二分答案ac，只跑了0.1s，属实离谱，不知道出题人为啥装出一副要卡log的样子。<strong>K一看就是绝活莫反，但是此时我又开始神志不清了</strong>，推了一波不考虑$lcm\ge p$的式子，上去敲了一发结果没过第二个样例（$p=1$），太久没碰到莫反迟钝了，看着自己以前的写的东西重推了两遍式子，发现是只算了方案数，改了改过了样例。</p><p><strong>然后就是在电脑面前不知道怎么满足lcm的限制直到比赛结束</strong></p><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>桂林：我超，没有数学题，挂机了</p><p>广州：我超，全是数学题，挂了</p><p>Final Fantasy的数学手，和其他队伍比起来还是太弱了。要是我再强一点，会不会有A的一血？会不会能在封榜后的1h中做出K？会不会在最后一场正式CCPC比赛中拿到金牌？还是那句话，电子竞技，菜是原罪。</p><p>自己最大的问题还是没有经过系统性的学习，只是靠着自欺欺人的所谓天赋，通过偶尔找一些资料看看、随便学一些结论、模仿着博客推一些公式来提高自己的数学水平。太多时间被浪费在没有意义的速成中，不如多花时间读读书。</p><p>CCPC金已经没了，剩下可能达到的只有CF上红了，希望毕业之前可以达到目标。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;最后一场CCPC也没有金。怎么说呢，感觉pku出题稍微有点离谱，不过自己菜也是原因之一就是了。&lt;/p&gt;
+&lt;h2 id=&quot;热身赛&quot;&gt;&lt;a href=&quot;#热身赛&quot; class=&quot;headerlink&quot; title=&quot;热身赛&quot;&gt;&lt;/a&gt;热身赛&lt;/h2&gt;&lt;p&gt;队友切了AB，C是神秘</summary>
+      
+    
+    
+    
+    <category term="比赛记录" scheme="http://example.com/categories/%E6%AF%94%E8%B5%9B%E8%AE%B0%E5%BD%95/"/>
+    
+    
+    <category term="比赛记录" scheme="http://example.com/tags/%E6%AF%94%E8%B5%9B%E8%AE%B0%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2021江西省赛</title>
+    <link href="http://example.com/2021/11/10/2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B/"/>
+    <id>http://example.com/2021/11/10/2021%E6%B1%9F%E8%A5%BF%E7%9C%81%E8%B5%9B/</id>
+    <published>2021-11-10T09:38:18.000Z</published>
+    <updated>2021-11-12T14:21:34.015Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="F-Four-Column-Hanoi-Tower"><a href="#F-Four-Column-Hanoi-Tower" class="headerlink" title="F. Four Column Hanoi Tower"></a>F. Four Column Hanoi Tower</h2><p>dp，找规律。首先汉诺塔为三列时$ans_x=2^{x}-1$。考虑往外放一层之后，接下来最下面的几层只能按照三列的规则移动，进而当往外放$k$</p><h2 id="G-Magic-Number-Group"><a href="#G-Magic-Number-Group" class="headerlink" title="G. Magic Number Group"></a>G. Magic Number Group</h2><p>莫队。首先线性筛$O(n\log n )$分解一下每个数的质因子，然后unique一下防止算重，然后就是边莫队边维护区间众数。用$c_i$表示质因子$i$的出现次数，$d_i$表示$\sum_{i=1}^{max}[c_k=i]$，用一个指针维护当前最大非零$d_i$（就是答案）。考虑加入一个数的所有因子之后，答案最多左右变动一位，所以可以$O(不同质因子个数)$更新答案了。</p><p>（$Hile$的莫队入门题，赛中看kuangbin板子现学的，不会有人大四还不会莫队吧）</p><h2 id="J-LRU"><a href="#J-LRU" class="headerlink" title="J. LRU"></a>J. LRU</h2><p>树状数组，前缀和。根据LRU算法，设$a_i$上一次出现的位置为$p$，区间$[p,i-1]$中有$t$个不同的数，则cache大小为$[t,+\infin)$时都会命中。枚举右端点，树状数组维护一下不同的数，然后前缀和一下就行了。</p><p>（和前段时间某场周赛的M题，就是求区间出现次数为偶数的数的异或和那题，几乎一模一样，补了题赛中还没过就该检讨了）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;F-Four-Column-Hanoi-Tower&quot;&gt;&lt;a href=&quot;#F-Four-Column-Hanoi-Tower&quot; class=&quot;headerlink&quot; title=&quot;F. Four Column Hanoi Tower&quot;&gt;&lt;/a&gt;F. Four Co</summary>
+      
+    
+    
+    
+    <category term="个人训练" scheme="http://example.com/categories/%E4%B8%AA%E4%BA%BA%E8%AE%AD%E7%BB%83/"/>
+    
+    
+    <category term="题解" scheme="http://example.com/tags/%E9%A2%98%E8%A7%A3/"/>
+    
+  </entry>
   
   <entry>
     <title>2021CCPC桂林复盘</title>
